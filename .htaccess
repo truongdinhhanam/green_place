@@ -1,5 +1,10 @@
-RedirectMatch 301 ^/index.html?$ /index.php
 Options +FollowSymLinks
+DirectoryIndex index.php
+
 RewriteEngine on
+
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index\.php\ HTTP/
 RewriteRule ^(.*)index\.php$ /$1 [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index\.html\ HTTP/
+RewriteRule ^(.*)index\.html$ /$1index.php [R=301,L]
